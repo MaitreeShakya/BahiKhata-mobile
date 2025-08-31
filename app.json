@@ -24,6 +24,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "8bded6b5-b228-450b-8391-77ce798613cd"
+      }
+    },
+    "owner": "mshakya93"
   }
 }
