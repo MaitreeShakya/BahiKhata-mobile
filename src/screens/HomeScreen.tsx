@@ -1,9 +1,10 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import ExpenseList from "../feature/expense/components/ExpenseList";
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Text>Home Screen</Text>
+      <ExpenseList />
     </View>
   );
 }
