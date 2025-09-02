@@ -36,6 +36,14 @@
         "projectId": "8bded6b5-b228-450b-8391-77ce798613cd"
       }
     },
+    "plugins": [
+      "expo-camera",
+      {
+        "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera",
+        "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone",
+        "recordAudioAndroid": true
+      }
+    ],
     "owner": "mshakya93"
   }
 }
