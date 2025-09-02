@@ -1,3 +1,6 @@
+import { KeyboardTypeOptions } from "react-native";
+import { TextInputProps } from "react-native-paper";
+
 export enum FieldType {
   TextInput = "TextInput",
   DatePicker = "DatePicker",
@@ -12,6 +15,8 @@ export interface TextInputFieldProps extends BaseFieldProps {
   value: string;
   onChange: (text: string) => void;
   type: FieldType.TextInput;
+  multiline?: boolean;
+  keyboardType?: KeyboardTypeOptions;
 }
 
 export interface DatePickerFieldProps extends BaseFieldProps {
