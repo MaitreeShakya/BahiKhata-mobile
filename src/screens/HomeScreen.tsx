@@ -1,10 +1,29 @@
 import { StyleSheet, View } from "react-native";
 import ExpenseList from "../feature/expense/components/ExpenseList";
+import { useState } from "react";
+import AddExpense from "../feature/expense/components/AddExpense";
+import { FAB, IconButton } from "react-native-paper";
 
 export default function HomeScreen() {
+  const [showAddExpenseModal, setShowAddExpenseModal] =
+    useState<boolean>(false);
+
+  const toggleAddExpenseModal = () => {
+    setShowAddExpenseModal(!showAddExpenseModal);
+  };
+
   return (
     <View style={styles.container}>
       <ExpenseList />
+
+      <FAB
+        icon="plus"
+        onPress={toggleAddExpenseModal}
+        style={styles.addButton}
+        color="#fff"
+      />
+
+      {showAddExpenseModal && <AddExpense onDismiss={toggleAddExpenseModal} />}
     </View>
   );
 }
@@ -12,5 +31,10 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  addButton: {
+    position: "absolute",
+    bottom: 70,
+    right: 16,
   },
 });

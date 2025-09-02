@@ -1,6 +1,6 @@
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import { Expense } from "../typings";
-import IconButton from "../../../components/buttons/IconButton";
+import { IconButton } from "react-native-paper";
 
 interface Props {
   item: Expense;
@@ -20,13 +20,15 @@ export const ExpenseListItem = ({ item, index, onPress }: Props) => {
           <Text style={styles.amount}>${item.amount}</Text>
         </View>
       </View>
-      <Pressable style={styles.imageContainer}>
+      <View style={styles.imageContainer}>
         {item.receipt_url ? (
-          <Image source={{ uri: item.receipt_url }} style={styles.image} />
+          <Pressable>
+            <Image source={{ uri: item.receipt_url }} style={styles.image} />
+          </Pressable>
         ) : (
-          <IconButton iconName="attach-file" onPress={() => {}} />
+          <IconButton icon="attachment" onPress={() => {}} iconColor="#000" />
         )}
-      </Pressable>
+      </View>
     </Pressable>
   );
 };
