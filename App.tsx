@@ -4,8 +4,14 @@ import Router from "./src/router";
 import { Provider as StoreProvider } from "react-redux";
 import store from "./src/store";
 import { Provider as PaperProvider } from "react-native-paper";
+import { requestPermissions } from "./src/permissions";
+import { useEffect } from "react";
 
 export default function App() {
+  useEffect(() => {
+    requestPermissions();
+  }, []);
+
   return (
     <StoreProvider store={store}>
       <PaperProvider>
