@@ -1,12 +1,15 @@
 import { StyleSheet, Text, View } from "react-native";
 import Modal from "../../../components/modal";
 import { Button, IconButton } from "react-native-paper";
+import { ExpenseForm } from "./ExpenseForm";
 
 interface Props {
   onDismiss: () => void;
 }
 
 const AddExpense = ({ onDismiss }: Props) => {
+  const onSubmit = () => {};
+
   return (
     <Modal>
       <View style={styles.container}>
@@ -20,15 +23,8 @@ const AddExpense = ({ onDismiss }: Props) => {
               style={styles.closeButton}
             />
           </View>
-          <View style={styles.footer}>
-            <Button
-              onPress={onDismiss}
-              mode="contained"
-              buttonColor="red"
-              textColor="white"
-            >
-              Close
-            </Button>
+          <View style={styles.form}>
+            <ExpenseForm onSubmit={onSubmit} />
           </View>
         </View>
       </View>
@@ -67,4 +63,5 @@ const styles = StyleSheet.create({
   footer: {
     marginTop: 16,
   },
+  form: {},
 });
