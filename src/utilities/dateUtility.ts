@@ -3,7 +3,7 @@ export class DateUtility {
     return new Date().toISOString();
   }
 
-  static formatDate(date: string): string {
+  static formatDate(date: string | Date): string {
     const options: Intl.DateTimeFormatOptions = {
       day: "2-digit",
       month: "2-digit",
