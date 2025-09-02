@@ -1,9 +1,13 @@
 import { StyleSheet, Text, View } from "react-native";
 
-export const ListEmptyComponent = () => {
+interface Props {
+  message: string;
+}
+
+export const ListEmptyComponent = ({ message }: Props) => {
   return (
     <View style={styles.container}>
-      <Text>No expenses found</Text>
+      <Text>{message}</Text>
     </View>
   );
 };
