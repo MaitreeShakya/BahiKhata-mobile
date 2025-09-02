@@ -3,6 +3,7 @@ import RNDateTimePicker, {
   DateTimePickerEvent,
 } from "@react-native-community/datetimepicker";
 import { DatePickerFieldProps } from "../typings";
+import { DateUtility } from "../../../utilities";
 
 const DatePickerField = ({ value, onChange }: DatePickerFieldProps) => {
   const onValueChange = (
@@ -10,13 +11,16 @@ const DatePickerField = ({ value, onChange }: DatePickerFieldProps) => {
     selectedDate: Date | undefined
   ) => {
     if (selectedDate) {
-      onChange(selectedDate);
+      const formattedDate = DateUtility.formatDateToString(selectedDate);
+      onChange(formattedDate);
     }
   };
 
+  const formattedDate = DateUtility.parseDate(value);
+
   return (
     <View style={styles.container}>
-      <RNDateTimePicker value={value} onChange={onValueChange} />
+      <RNDateTimePicker value={formattedDate} onChange={onValueChange} />
     </View>
   );
 };
