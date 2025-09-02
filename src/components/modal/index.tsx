@@ -1,4 +1,10 @@
-import { Modal, StyleSheet, View } from "react-native";
+import {
+  Keyboard,
+  Modal,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  View,
+} from "react-native";
 
 interface Props {
   children?: React.ReactNode;
@@ -7,7 +13,9 @@ interface Props {
 export default function ({ children }: Props) {
   return (
     <Modal transparent>
-      <View style={styles.container}>{children}</View>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.container}>{children}</View>
+      </TouchableWithoutFeedback>
     </Modal>
   );
 }
