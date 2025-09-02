@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import { Expense } from "../typings";
 import Field from "../../../components/fields";
 import { FieldType } from "../../../components/fields/typings";
@@ -22,12 +22,14 @@ export const ExpenseForm = ({ initialValues, onSubmit }: ExpenseFormProps) => {
         onChange={(text) => console.log(text)}
         value={""}
         label="Description"
+        multiline={true}
       />
       <Field
         type={FieldType.TextInput}
         onChange={(text) => console.log(text)}
         value={""}
         label="Amount"
+        keyboardType={"numeric"}
       />
       <Field
         type={FieldType.Camera}
