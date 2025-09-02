@@ -12,8 +12,12 @@ export class DateUtility {
     return new Intl.DateTimeFormat("en-AU", options).format(new Date(date));
   }
 
-  static parseDate(dateString: string): Date | null {
+  static formatDateToString(date: Date): string {
+    return date.toISOString();
+  }
+
+  static parseDate(dateString: string): Date {
     const date = new Date(dateString);
-    return isNaN(date.getTime()) ? null : date;
+    return isNaN(date.getTime()) ? new Date() : date;
   }
 }
