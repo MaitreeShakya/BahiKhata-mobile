@@ -8,8 +8,9 @@ import { requestPermissions } from "./src/permissions";
 import { useEffect } from "react";
 
 export default function App() {
+  const { askAllPermissions } = requestPermissions();
   useEffect(() => {
-    requestPermissions();
+    askAllPermissions();
   }, []);
 
   return (
