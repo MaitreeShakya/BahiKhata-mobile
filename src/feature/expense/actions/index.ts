@@ -1,6 +1,6 @@
 import { AppDispatch } from "../../../store/typings";
 import { ExpenseApi } from "../api";
-import { setExpenseById, setExpenses } from "../slices";
+import { setExpenseById, setExpenses } from "../slices/ExpenseSlice";
 import { Expense } from "../typings";
 
 const fetchExpenses = () => async (dispatch: AppDispatch) => {
@@ -25,7 +25,7 @@ const addExpense = (data: Expense) => async (dispatch: AppDispatch) => {
   try {
     const createdExpense = await ExpenseApi.createExpense(data);
     dispatch(
-      setExpenseById({ id: createdExpense._id, expense: createdExpense })
+      setExpenseById({ id: createdExpense._id!, expense: createdExpense })
     );
   } catch (error) {
     console.error("Error adding expense:", error);
@@ -37,7 +37,7 @@ const updateExpense =
     try {
       const updatedExpense = await ExpenseApi.updateExpense(id, data);
       dispatch(
-        setExpenseById({ id: updatedExpense._id, expense: updatedExpense })
+        setExpenseById({ id: updatedExpense._id!, expense: updatedExpense })
       );
     } catch (error) {
       console.error("Error updating expense:", error);

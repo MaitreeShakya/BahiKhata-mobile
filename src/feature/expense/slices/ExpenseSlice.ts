@@ -28,7 +28,7 @@ export const expenseSlice = createSlice({
 
     addExpense: (state, action: PayloadAction<Expense>) => {
       const expense = action.payload;
-      state[expense._id] = expense;
+      state[expense._id!] = expense;
     },
 
     updateExpense: (

@@ -1,4 +1,4 @@
-import { expenseReducer } from "../feature/expense/slices";
+import { expenseReducer } from "../feature/expense/slices/ExpenseSlice";
 
 const reducers = {
   expenses: expenseReducer,
