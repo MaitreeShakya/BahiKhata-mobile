@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { CameraFieldProps } from "../typings";
-import { Button } from "react-native-paper";
+import { Button, Text } from "react-native-paper";
 import Camera from "../../camera";
 
 const CameraField = ({ isMulti, onCapture }: CameraFieldProps) => {
@@ -25,11 +25,32 @@ const CameraField = ({ isMulti, onCapture }: CameraFieldProps) => {
   };
 
   return (
-    <View>
-      <Button onPress={toggleCamera}>Open Camera</Button>
+    <View style={styles.container}>
+      <Text variant="labelMedium" style={styles.label}>
+        Receipt:
+      </Text>
+      <Button
+        onPress={toggleCamera}
+        mode="outlined"
+        icon={"camera"}
+        textColor="#000000"
+      >
+        Open Camera
+      </Button>
       {showCamera && <Camera />}
     </View>
   );
 };
 
 export default CameraField;
+
+const styles = StyleSheet.create({
+  container: {
+    padding: 8,
+  },
+  label: {
+    color: "#000000",
+    fontWeight: "bold",
+    marginBottom: 4,
+  },
+});
