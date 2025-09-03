@@ -5,9 +5,9 @@ import RNDateTimePicker, {
 import { DatePickerFieldProps } from "../typings";
 import { DateUtility } from "../../../utilities";
 import { useState } from "react";
-import { TextInput } from "react-native-paper";
+import { TextInput, Text } from "react-native-paper";
 
-const DatePickerField = ({ value, onChange }: DatePickerFieldProps) => {
+const DatePickerField = ({ label, value, onChange }: DatePickerFieldProps) => {
   const [showPicker, setShowPicker] = useState(false);
 
   const onOpen = () => setShowPicker(true);
@@ -32,8 +32,10 @@ const DatePickerField = ({ value, onChange }: DatePickerFieldProps) => {
   return (
     <View style={styles.container}>
       <Pressable onPress={onOpen}>
+        <Text style={styles.label} variant="labelMedium">
+          {label}:
+        </Text>
         <TextInput
-          label="Date"
           value={DateUtility.formatDate(formattedDate)}
           editable={false}
           mode="outlined"
@@ -53,6 +55,11 @@ export default DatePickerField;
 
 const styles = StyleSheet.create({
   container: {
-    padding: 8,
+    paddingHorizontal: 8,
+  },
+  label: {
+    color: "#000000",
+    fontWeight: "bold",
+    marginBottom: 4,
   },
 });
