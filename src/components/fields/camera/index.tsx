@@ -37,7 +37,13 @@ const CameraField = ({ isMulti, onCapture }: CameraFieldProps) => {
       >
         Open Camera
       </Button>
-      {showCamera && <Camera />}
+      {showCamera && (
+        <Camera
+          mode={"picture"}
+          onCapture={handleCapture}
+          onDismiss={toggleCamera}
+        />
+      )}
     </View>
   );
 };
