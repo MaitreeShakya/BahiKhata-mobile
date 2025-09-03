@@ -1,11 +1,13 @@
 import { useCameraPermissions } from "expo-camera";
 
-export const requestPermissions = async () => {
-  const [cameraPermission, requestCameraPermission] = useCameraPermissions();
+export const requestPermissions = () => {
+  const [permission, requestCameraPermission] = useCameraPermissions();
 
-  const requestPermissions = async () => {
+  const cameraPermission = (permission && permission.granted) || false;
+
+  const askAllPermissions = async () => {
     await requestCameraPermission();
   };
 
-  return { cameraPermission, requestPermissions };
+  return { cameraPermission, askAllPermissions };
 };
