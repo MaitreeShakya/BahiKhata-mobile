@@ -17,6 +17,8 @@ export interface TextInputFieldProps extends BaseFieldProps {
   type: FieldType.TextInput;
   multiline?: boolean;
   keyboardType?: KeyboardTypeOptions;
+  right?: React.ReactNode;
+  left?: React.ReactNode;
 }
 
 export interface DatePickerFieldProps extends BaseFieldProps {
