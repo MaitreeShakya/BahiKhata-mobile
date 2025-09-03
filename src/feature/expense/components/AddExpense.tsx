@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import Modal from "../../../components/modal";
-import { Button, IconButton } from "react-native-paper";
+import { Button, Divider, IconButton } from "react-native-paper";
 import { ExpenseForm } from "./ExpenseForm";
 
 interface Props {
@@ -23,6 +23,7 @@ const AddExpense = ({ onDismiss }: Props) => {
               style={styles.closeButton}
             />
           </View>
+          <Divider/>
           <View style={styles.form}>
             <ExpenseForm onSubmit={onSubmit} />
           </View>
@@ -48,7 +49,6 @@ const styles = StyleSheet.create({
     width: "90%",
   },
   header: {
-    marginBottom: 16,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
