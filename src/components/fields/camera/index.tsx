@@ -5,8 +5,8 @@ import { Button, Text } from "react-native-paper";
 import Camera from "../../camera";
 
 const CameraField = ({ isMulti, onCapture }: CameraFieldProps) => {
-  const [capturedImages, setCapturedImages] = useState<string[]>([]);
   const [showCamera, setShowCamera] = useState(false);
+  const [capturedImages, setCapturedImages] = useState<string[]>([]);
 
   const toggleCamera = () => {
     setShowCamera((prev) => !prev);
