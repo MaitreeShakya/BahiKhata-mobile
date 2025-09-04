@@ -17,7 +17,7 @@ export default {
     },
     ios: {
       supportsTablet: true,
-      bundleIdentifier: "com.msha.bhkta",
+      bundleIdentifier: IS_DEV ? "com.dev.bhkta" : "com.msha.bhkta",
       infoPlist: {
         ITSAppUsesNonExemptEncryption: false,
       },
@@ -55,6 +55,13 @@ export default {
           microphonePermissionText:
             "$(PRODUCT_NAME) needs access to your Microphone.",
           enableMicrophonePermission: true,
+        },
+      ],
+      [
+        "@react-native-google-signin/google-signin",
+        {
+          iosUrlScheme:
+            "com.googleusercontent.apps.227488734246-1p74og9io6knljema4kiqq92q84dhc9o",
         },
       ],
     ],
