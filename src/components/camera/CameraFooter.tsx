@@ -80,13 +80,24 @@ export const CameraFooter = ({
 
   return (
     <View style={styles.container}>
-      <IconButton icon={facingIcon} size={ICON_SIZE} onPress={onFlipPress} />
+      <IconButton
+        icon={facingIcon}
+        size={ICON_SIZE}
+        onPress={onFlipPress}
+        iconColor="#fff"
+      />
       <IconButton
         icon="circle-slice-8"
         size={SHUTTER_ICON_SIZE}
         onPress={handleCapture}
+        iconColor="#fff"
       />
-      <IconButton icon={flashIcon} size={ICON_SIZE} onPress={onFlashPress} />
+      <IconButton
+        icon={flashIcon}
+        size={ICON_SIZE}
+        onPress={onFlashPress}
+        iconColor="#fff"
+      />
     </View>
   );
 };
@@ -97,7 +108,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    paddingVertical: 5,
+    paddingVertical: 30,
     paddingHorizontal: 30,
     flexDirection: "row",
     justifyContent: "space-between",

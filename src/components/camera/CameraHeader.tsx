@@ -1,5 +1,5 @@
 import { StyleSheet, View } from "react-native";
-import { IconButton, Text } from "react-native-paper";
+import { IconButton } from "react-native-paper";
 
 interface Props {
   onClose: () => void;
@@ -9,7 +9,12 @@ export const CameraHeader = ({ onClose }: Props) => {
   const ICON_SIZE = 30;
   return (
     <View style={styles.container}>
-      <IconButton icon="close" size={ICON_SIZE} onPress={onClose} />
+      <IconButton
+        icon="close"
+        size={ICON_SIZE}
+        onPress={onClose}
+        iconColor="#fff"
+      />
     </View>
   );
 };
@@ -21,6 +26,7 @@ const styles = StyleSheet.create({
     right: 0,
     top: 0,
     padding: 16,
+    paddingTop: 40,
     backgroundColor: "rgba(0, 0, 0, 0.5)",
   },
 });

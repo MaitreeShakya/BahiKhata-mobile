@@ -1,4 +1,4 @@
-import { StyleSheet, View } from "react-native";
+import { SafeAreaView, StyleSheet } from "react-native";
 import Modal from "../modal";
 import { CameraType, CameraView, FlashMode } from "expo-camera";
 import { CameraHeader } from "./CameraHeader";
@@ -32,7 +32,7 @@ export const CameraComponent = ({
 
   return (
     <Modal>
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <CameraView
           ref={cameraRef}
           style={styles.camera}
@@ -50,7 +50,7 @@ export const CameraComponent = ({
           onCapturePress={onCapture}
           onFlashPress={switchFlashMode}
         />
-      </View>
+      </SafeAreaView>
     </Modal>
   );
 };
@@ -61,15 +61,5 @@ const styles = StyleSheet.create({
   },
   camera: {
     flex: 1,
-  },
-  buttonContainer: {
-    position: "absolute",
-    bottom: 0,
-    left: 0,
-    right: 0,
-    padding: 20,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
   },
 });
