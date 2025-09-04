@@ -6,6 +6,7 @@ import store from "./src/store";
 import { Provider as PaperProvider } from "react-native-paper";
 import { requestPermissions } from "./src/permissions";
 import { useEffect } from "react";
+import { AuthProvider } from "./src/feature/auth/provider/AuthProvider";
 
 export default function App() {
   const { askAllPermissions } = requestPermissions();
@@ -16,10 +17,12 @@ export default function App() {
   return (
     <StoreProvider store={store}>
       <PaperProvider>
-        <SafeAreaView style={styles.container}>
-          <StatusBar style="auto" />
-          <Router />
-        </SafeAreaView>
+        <AuthProvider>
+          <SafeAreaView style={styles.container}>
+            <StatusBar style="auto" />
+            <Router />
+          </SafeAreaView>
+        </AuthProvider>
       </PaperProvider>
     </StoreProvider>
   );
