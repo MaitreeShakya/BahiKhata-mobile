@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Expense } from "../typings";
 
 const initialState: Expense = {
@@ -11,7 +11,7 @@ export const ExpenseFormSlice = createSlice({
   name: "expenseForm",
   initialState,
   reducers: {
-    setExpenseForm: (state, action) => {
+    setExpenseForm: (state, action: PayloadAction<Expense>) => {
       return { ...state, ...action.payload };
     },
     resetExpenseForm: () => {
@@ -22,4 +22,4 @@ export const ExpenseFormSlice = createSlice({
 
 export const { setExpenseForm, resetExpenseForm } = ExpenseFormSlice.actions;
 
-export default ExpenseFormSlice.reducer;
+export const expenseFormReducer = ExpenseFormSlice.reducer;

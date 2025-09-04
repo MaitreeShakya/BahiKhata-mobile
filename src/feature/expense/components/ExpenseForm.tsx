@@ -3,6 +3,9 @@ import { Expense } from "../typings";
 import Field from "../../../components/fields";
 import { FieldType } from "../../../components/fields/typings";
 import { Button, Divider, TextInput } from "react-native-paper";
+import { useAppDispatch } from "../../../store/hooks";
+import { useEffect } from "react";
+import { setExpenseForm } from "../slices/ExpenseFormSlice";
 
 interface ExpenseFormProps {
   initialValues?: Expense;
@@ -10,6 +13,16 @@ interface ExpenseFormProps {
 }
 
 export const ExpenseForm = ({ initialValues, onSubmit }: ExpenseFormProps) => {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    if (initialValues) {
+      dispatch(setExpenseForm(initialValues));
+    }
+  }, []);
+
+  const handleSubmit = () => {};
+
   return (
     <>
       <View style={styles.container}>
@@ -32,7 +45,7 @@ export const ExpenseForm = ({ initialValues, onSubmit }: ExpenseFormProps) => {
           value={""}
           label="Amount"
           keyboardType={"numeric"}
-          left={<TextInput.Icon icon="currency-usd" color={"#000000"}/>}
+          left={<TextInput.Icon icon="currency-usd" color={"#000000"} />}
         />
         <Field
           type={FieldType.Camera}
@@ -45,7 +58,7 @@ export const ExpenseForm = ({ initialValues, onSubmit }: ExpenseFormProps) => {
       <Divider />
       <View style={styles.footer}>
         <Button
-          onPress={() => {}}
+          onPress={handleSubmit}
           mode="contained"
           buttonColor="#6200ee"
           textColor="#fff"
