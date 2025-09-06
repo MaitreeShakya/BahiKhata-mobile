@@ -1,4 +1,4 @@
-const IS_DEV = __DEV__;
+const IS_DEV = process.env.APP_VARIANT === "dev";
 const iosUrlScheme = process.env.EXPO_PUBLIC_IOS_URL_SCHEME;
 
 export default {
