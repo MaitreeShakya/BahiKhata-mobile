@@ -1,13 +1,29 @@
-import { useState } from "react";
 import { AuthContext } from "../context";
 import { GoogleSignin } from "@react-native-google-signin/google-signin";
 import { googleSignInConfig } from "../google/constants";
+import { useAppDispatch, useAppSelector } from "../../../store/hooks";
+import { User } from "../../user/typings";
+import { setAuthenticatedUser } from "../slices";
+import { UserService } from "../../../services/UserService";
+import { useEffect } from "react";
 interface AuthProviderProps {
   children: React.ReactNode;
 }
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const { user, isAuthenticated, error } = useAppSelector(({ auth }) => auth);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    checkUserAuthentication();
+  }, []);
+
+  const checkUserAuthentication = async () => {
+    const user = await UserService.getUserFromAsyncStorage();
+    if (user) {
+      dispatch(setAuthenticatedUser(user));
+    }
+  };
 
   const login = async () => {
     try {
@@ -16,7 +32,17 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       const { data, type } = await GoogleSignin.signIn();
 
       if (type === "success") {
-        console.log("Google Sign-In data:", data);
+        const {
+          user: { id, familyName, givenName, email },
+        } = data;
+
+        const user: User = {
+          id,
+          name: givenName + " " + familyName,
+          email,
+        };
+
+        dispatch(setAuthenticatedUser(user));
       } else {
         console.log("Google Sign-In failed");
       }
@@ -26,11 +52,13 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   };
 
   const logout = () => {
-    setIsAuthenticated(false);
+    GoogleSignin.signOut();
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
+    <AuthContext.Provider
+      value={{ isAuthenticated, login, logout, user, error }}
+    >
       {children}
     </AuthContext.Provider>
   );
