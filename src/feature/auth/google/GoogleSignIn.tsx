@@ -1,12 +1,10 @@
-import { GoogleSignin } from "@react-native-google-signin/google-signin";
 import { Button } from "react-native-paper";
-import { googleSignInConfig } from "./constants";
-import { useContext } from "react";
-import { AuthContext } from "../context";
+import { useAuth } from "../hooks/useAuth";
 
 interface Props {}
+
 export const GoogleSignIn = ({}: Props) => {
-  const { login } = useContext(AuthContext)!;
+  const { login } = useAuth();
 
   const handleSignIn = async () => {
     try {
