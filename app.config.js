@@ -1,4 +1,5 @@
 const IS_DEV = process.env.APP_VARIANT === "dev";
+const iosUrlScheme = process.env.EXPO_PUBLIC_IOS_URL_SCHEME;
 
 export default {
   expo: {
@@ -60,7 +61,7 @@ export default {
       [
         "@react-native-google-signin/google-signin",
         {
-          iosUrlScheme: process.env.EXPO_PUBLIC_IOS_URL_SCHEME,
+          iosUrlScheme: iosUrlScheme,
         },
       ],
     ],
