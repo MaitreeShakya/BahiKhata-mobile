@@ -60,7 +60,7 @@ export default {
       [
         "@react-native-google-signin/google-signin",
         {
-          iosUrlScheme: process.env.IOS_URL_SCHEME,
+          iosUrlScheme: process.env.EXPO_PUBLIC_IOS_URL_SCHEME,
         },
       ],
     ],
