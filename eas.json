@@ -16,6 +16,11 @@
       },
       "android": {
         "buildType": "apk"
+      },
+      "env": {
+        "APP_VARIANT": "dev",
+        "EXPO_PUBLIC_IOS_URL_SCHEME": "com.googleusercontent.apps.227488734246-1p74og9io6knljema4kiqq92q84dhc9o",
+        "EXPO_PUBLIC_IOS_CLIENT_ID": "227488734246-1p74og9io6knljema4kiqq92q84dhc9o.apps.googleusercontent.com"
       }
     },
     "preview": {
