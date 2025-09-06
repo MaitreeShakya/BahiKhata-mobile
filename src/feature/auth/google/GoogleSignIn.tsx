@@ -1,15 +1,16 @@
 import { GoogleSignin } from "@react-native-google-signin/google-signin";
 import { Button } from "react-native-paper";
+import { googleSignInConfig } from "./constants";
+import { useContext } from "react";
+import { AuthContext } from "../context";
 
 interface Props {}
 export const GoogleSignIn = ({}: Props) => {
-  GoogleSignin.configure({
-    iosClientId: process.env.IOS_CLIENT_ID,
-  });
+  const { login } = useContext(AuthContext)!;
 
-  const handleSignIn = () => {
+  const handleSignIn = async () => {
     try {
-      GoogleSignin.signIn();
+      await login();
     } catch (error) {
       console.error("Error during Google Sign-In", error);
     }
