@@ -33,15 +33,16 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
       if (type === "success") {
         const {
-          user: { id, familyName, givenName, email },
+          user: { id, familyName, givenName, email, photo },
         } = data;
 
         const user: User = {
           id,
           name: givenName + " " + familyName,
           email,
+          avatarUrl: photo || undefined,
         };
-
+        await UserService.storeUserInAsyncStorage(user);
         dispatch(setAuthenticatedUser(user));
       } else {
         console.log("Google Sign-In failed");
