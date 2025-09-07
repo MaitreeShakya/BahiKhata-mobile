@@ -1,10 +1,10 @@
 import { Platform, StyleSheet, View } from "react-native";
-import ExpenseList from "../feature/expense/components/ExpenseList";
+import ExpenseList from "../../feature/expense/components/ExpenseList";
 import { useEffect, useState } from "react";
-import AddExpense from "../feature/expense/components/AddExpense";
-import FAB from "../components/fab";
-import { AppStackNavProps } from "../router/typings";
-import Header from "../components/header/Header";
+import AddExpense from "../../feature/expense/components/AddExpense";
+import FAB from "../../components/fab";
+import { AppStackNavProps } from "../../router/typings";
+import Header from "../../components/header";
 
 interface Props extends AppStackNavProps<"HomeScreen"> {}
 
