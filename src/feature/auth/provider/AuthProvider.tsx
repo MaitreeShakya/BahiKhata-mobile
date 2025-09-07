@@ -3,7 +3,7 @@ import { GoogleSignin } from "@react-native-google-signin/google-signin";
 import { googleSignInConfig } from "../google/constants";
 import { useAppDispatch, useAppSelector } from "../../../store/hooks";
 import { User } from "../../user/typings";
-import { setAuthenticatedUser } from "../slices";
+import { clearAuthenticatedUser, setAuthenticatedUser } from "../slices";
 import { UserService } from "../../../services/UserService";
 import { useEffect } from "react";
 interface AuthProviderProps {
@@ -54,6 +54,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const logout = () => {
     GoogleSignin.signOut();
+    dispatch(clearAuthenticatedUser());
+    UserService.removeUserFromAsyncStorage();
   };
 
   return (
