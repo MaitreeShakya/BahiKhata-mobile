@@ -1,7 +1,8 @@
 import { StyleSheet, Text, View } from "react-native";
-import Modal from "../../../components/modal";
-import { Button, Divider, IconButton } from "react-native-paper";
 import { ExpenseForm } from "./ExpenseForm";
+import Modal from "../../../components/modal";
+import Divider from "../../../components/divider";
+import IconButton from "../../../components/icon-button";
 
 interface Props {
   onDismiss: () => void;
@@ -23,7 +24,7 @@ const AddExpense = ({ onDismiss }: Props) => {
               style={styles.closeButton}
             />
           </View>
-          <Divider/>
+          <Divider />
           <View style={styles.form}>
             <ExpenseForm onSubmit={onSubmit} />
           </View>
