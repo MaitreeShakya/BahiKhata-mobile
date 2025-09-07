@@ -2,10 +2,12 @@ import { StyleSheet, View } from "react-native";
 import { Expense } from "../typings";
 import Field from "../../../components/fields";
 import { FieldType } from "../../../components/fields/typings";
-import { Button, Divider, TextInput } from "react-native-paper";
+import { TextInput } from "react-native-paper";
 import { useAppDispatch } from "../../../store/hooks";
 import { useEffect } from "react";
 import { setExpenseForm } from "../slices/ExpenseFormSlice";
+import Button from "../../../components/button";
+import Divider from "../../../components/divider";
 
 interface ExpenseFormProps {
   initialValues?: Expense;
