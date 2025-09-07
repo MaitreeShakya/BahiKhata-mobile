@@ -19,7 +19,7 @@ export default function App() {
       <PaperProvider>
         <AuthProvider>
           <SafeAreaView style={styles.container}>
-            <StatusBar style="auto" />
+            <StatusBar style="dark" />
             <Router />
           </SafeAreaView>
         </AuthProvider>
