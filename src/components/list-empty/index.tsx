@@ -4,13 +4,13 @@ interface Props {
   message: string;
 }
 
-export const ListEmptyComponent = ({ message }: Props) => {
+export default function ({ message }: Props) {
   return (
     <View style={styles.container}>
       <Text>{message}</Text>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
