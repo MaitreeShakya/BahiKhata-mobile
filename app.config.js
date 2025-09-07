@@ -10,7 +10,7 @@ export default {
     icon: "./assets/logo.png",
     userInterfaceStyle: "light",
     newArchEnabled: true,
-    scheme: "com.msha.bhkta",
+    scheme: IS_DEV ? "com.dev.bhkta" : "com.msha.bhkta",
     splash: {
       image: "./assets/logo.png",
       resizeMode: "contain",
@@ -29,7 +29,7 @@ export default {
         backgroundColor: "#ffffff",
       },
       edgeToEdgeEnabled: true,
-      package: "com.msha.bhkta",
+      package: IS_DEV ? "com.dev.bhkta" : "com.msha.bhkta",
     },
     web: {
       favicon: "./assets/logo.png",
@@ -61,7 +61,7 @@ export default {
       [
         "@react-native-google-signin/google-signin",
         {
-          iosUrlScheme: iosUrlScheme,
+          iosUrlScheme,
         },
       ],
     ],
