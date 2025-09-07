@@ -39,7 +39,18 @@ export const ExpenseForm = ({ initialValues, onSubmit }: ExpenseFormProps) => {
           onChange={(text) => console.log(text)}
           value={""}
           label="Description"
-          multiline={true}
+        />
+        <Field
+          type={FieldType.Dropdown}
+          onSelect={(value) => console.log(value)}
+          value={""}
+          label="Category"
+          isMulti={false}
+          options={[
+            { label: "Food", value: "food" },
+            { label: "Transport", value: "transport" },
+            { label: "Utilities", value: "utilities" },
+          ]}
         />
         <Field
           type={FieldType.TextInput}

@@ -1,10 +1,11 @@
 import { KeyboardTypeOptions } from "react-native";
-import { TextInputProps } from "react-native-paper";
+import { DropDownFieldProps } from "./drop-down/typings";
 
 export enum FieldType {
   TextInput = "TextInput",
   DatePicker = "DatePicker",
   Camera = "Camera",
+  Dropdown = "Dropdown",
 }
 
 export interface BaseFieldProps {
@@ -27,14 +28,14 @@ export interface DatePickerFieldProps extends BaseFieldProps {
   type: FieldType.DatePicker;
 }
 
-export interface SingleCameraFieldProps extends BaseFieldProps {
+interface SingleCameraFieldProps extends BaseFieldProps {
   onCapture: (image: string[]) => void;
   isMulti: true;
   type: FieldType.Camera;
   value: string[];
 }
 
-export interface MultiCameraFieldProps extends BaseFieldProps {
+interface MultiCameraFieldProps extends BaseFieldProps {
   onCapture: (image: string) => void;
   isMulti: false;
   type: FieldType.Camera;
@@ -43,7 +44,10 @@ export interface MultiCameraFieldProps extends BaseFieldProps {
 
 export type CameraFieldProps = SingleCameraFieldProps | MultiCameraFieldProps;
 
+
+
 export type FieldProps =
   | TextInputFieldProps
   | DatePickerFieldProps
-  | CameraFieldProps;
+  | CameraFieldProps
+  | DropDownFieldProps;

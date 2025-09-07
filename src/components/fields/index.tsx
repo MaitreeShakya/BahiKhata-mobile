@@ -1,6 +1,7 @@
 import CameraField from "./camera";
 import DatePickerField from "./date-picker";
 import TextInputField from "./text-input";
+import DropDownField from "./drop-down";
 import { FieldProps, FieldType } from "./typings";
 
 const Field = (props: FieldProps) => {
@@ -13,6 +14,9 @@ const Field = (props: FieldProps) => {
     }
     case FieldType.Camera: {
       return <CameraField {...props} />;
+    }
+    case FieldType.Dropdown: {
+      return <DropDownField {...props} />;
     }
     default:
       return null;
