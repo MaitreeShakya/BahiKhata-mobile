@@ -10,7 +10,9 @@
       "env": {
         "APP_VARIANT": "dev",
         "EXPO_PUBLIC_IOS_URL_SCHEME": "com.googleusercontent.apps.227488734246-1p74og9io6knljema4kiqq92q84dhc9o",
-        "EXPO_PUBLIC_IOS_CLIENT_ID": "227488734246-1p74og9io6knljema4kiqq92q84dhc9o.apps.googleusercontent.com"
+        "EXPO_PUBLIC_IOS_CLIENT_ID": "227488734246-1p74og9io6knljema4kiqq92q84dhc9o.apps.googleusercontent.com",
+        "EXPO_PUBLIC_WEB_CLIENT_ID": "227488734246-67ipqmqs9q1uvv5p499502fk8q1k7ed6.apps.googleusercontent.com",
+        "EXPO_PUBLIC_ANDROID_CLIENT_ID": "227488734246-msvgaehf6u0t8dah54v0ucvctuj903q8.apps.googleusercontent.com"
       }
     },
     "simulator": {
@@ -25,7 +27,9 @@
       "env": {
         "APP_VARIANT": "dev",
         "EXPO_PUBLIC_IOS_URL_SCHEME": "com.googleusercontent.apps.227488734246-1p74og9io6knljema4kiqq92q84dhc9o",
-        "EXPO_PUBLIC_IOS_CLIENT_ID": "227488734246-1p74og9io6knljema4kiqq92q84dhc9o.apps.googleusercontent.com"
+        "EXPO_PUBLIC_IOS_CLIENT_ID": "227488734246-1p74og9io6knljema4kiqq92q84dhc9o.apps.googleusercontent.com",
+        "EXPO_PUBLIC_WEB_CLIENT_ID": "227488734246-67ipqmqs9q1uvv5p499502fk8q1k7ed6.apps.googleusercontent.com",
+        "EXPO_PUBLIC_ANDROID_CLIENT_ID": "227488734246-msvgaehf6u0t8dah54v0ucvctuj903q8.apps.googleusercontent.com"
       }
     },
     "preview": {
