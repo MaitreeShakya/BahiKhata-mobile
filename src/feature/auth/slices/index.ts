@@ -24,7 +24,7 @@ const slice = createSlice({
     setAuthenticatedUser: (state, action: PayloadAction<User>) => {
       return { ...state, user: action.payload, isAuthenticated: true };
     },
-    clearAuthenticatedUser: (state, action) => {
+    clearAuthenticatedUser: (state) => {
       return initialState;
     },
     setAuthenticationError: (state, action: PayloadAction<string | null>) => {
