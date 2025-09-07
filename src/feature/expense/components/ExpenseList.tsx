@@ -1,9 +1,9 @@
 import { FlatList, StyleSheet } from "react-native";
 import { useExpenses } from "../hooks/useExpenses";
 import { ExpenseListItem } from "./ExpenseListItem";
-import { ListEmptyComponent } from "../../../components/ListEmptyComponent";
 import { useEffect } from "react";
 import { Expense } from "../typings";
+import ListEmpty from "../../../components/list-empty";
 
 export default function ExpenseList() {
   const { data, onRefresh, refreshing } = useExpenses();
@@ -16,7 +16,13 @@ export default function ExpenseList() {
     return <ExpenseListItem item={item} index={index} onPress={() => {}} />;
   };
 
-  const emptyComponentMessage = "No expenses found";
+  const keyExtractor = (item: Expense, index: number) => {
+    return `exp-${item._id}-${index}`;
+  };
+
+  const ListEmptyComponent = (
+    <ListEmpty message="No expenses found. Add some expenses to get started!" />
+  );
 
   return (
     <FlatList
@@ -24,10 +30,8 @@ export default function ExpenseList() {
       onRefresh={onRefresh}
       refreshing={refreshing}
       renderItem={renderItem}
-      keyExtractor={(item) => item._id}
-      ListEmptyComponent={
-        <ListEmptyComponent message={emptyComponentMessage} />
-      }
+      keyExtractor={keyExtractor}
+      ListEmptyComponent={ListEmptyComponent}
       style={styles.container}
     />
   );
