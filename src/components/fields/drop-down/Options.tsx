@@ -1,29 +1,39 @@
-import {
-  FlatList,
-  ListRenderItemInfo,
-  Pressable,
-  StyleSheet,
-  View,
-} from "react-native";
+import { FlatList, ListRenderItemInfo, StyleSheet, View } from "react-native";
 import Modal from "../../modal";
 import { Text } from "react-native-paper";
 import { DropdownOption } from "./typings";
 import { OptionItem } from "./OptionItem";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 interface Props {
   options: DropdownOption[];
+  onSelect: (option: DropdownOption) => void;
+  onClose: () => void;
 }
 
-const renderItem = ({ item, index }: ListRenderItemInfo<DropdownOption>) => {
-  const isSelected = index % 2 === 0 && true;
-  return <OptionItem item={item} isSelected={isSelected} />;
-};
+const Options = ({ options, onSelect, onClose }: Props) => {
+  const renderItem = ({ item, index }: ListRenderItemInfo<DropdownOption>) => {
+    const isSelected = index % 2 === 0 && true;
+    return (
+      <OptionItem item={item} isSelected={isSelected} onPress={onSelect} />
+    );
+  };
 
-const Options = ({ options }: Props) => {
   return (
     <Modal>
       <View style={styles.modalContainer}>
         <View style={styles.modalContent}>
+          <View style={styles.titleContainer}>
+            <Text variant="titleMedium" style={styles.title}>
+              Please select an option:
+            </Text>
+            <MaterialCommunityIcons
+              name="close"
+              size={24}
+              color="red"
+              onPress={onClose}
+            />
+          </View>
           <FlatList data={options} renderItem={renderItem} />
         </View>
       </View>
@@ -46,5 +56,14 @@ const styles = StyleSheet.create({
     width: "80%",
     maxHeight: "80%",
   },
-
+  titleContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 12,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: "bold",
+  },
 });

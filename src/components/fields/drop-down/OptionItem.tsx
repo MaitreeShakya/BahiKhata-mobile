@@ -5,11 +5,17 @@ import { DropdownOption } from "./typings";
 interface Props {
   item: DropdownOption;
   isSelected?: boolean;
+  onPress: (item: DropdownOption) => void;
 }
-export const OptionItem = ({ item, isSelected }: Props) => {
+export const OptionItem = ({ item, isSelected, onPress }: Props) => {
   const style = [styles.option, isSelected && styles.selectedOption];
+
+  const handlePress = () => {
+    onPress(item);
+  };
+
   return (
-    <Pressable onPress={() => {}}>
+    <Pressable onPress={handlePress}>
       <Text key={item.value} style={style}>
         {item.label}
       </Text>

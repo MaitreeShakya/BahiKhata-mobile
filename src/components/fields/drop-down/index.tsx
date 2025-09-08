@@ -26,7 +26,13 @@ export default function (props: DropDownFieldProps) {
         onPress={toggleDropDown}
         style={{ backgroundColor: "white" }}
       />
-      {showDropDown && <Options options={options} />}
+      {showDropDown && (
+        <Options
+          options={options}
+          onSelect={() => {}}
+          onClose={toggleDropDown}
+        />
+      )}
     </View>
   );
 }
