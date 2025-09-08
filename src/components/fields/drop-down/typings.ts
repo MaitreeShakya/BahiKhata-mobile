@@ -1,6 +1,10 @@
 import { Option } from "react-native-paper-dropdown";
 import { BaseFieldProps, FieldType } from "../typings";
 
+export interface DropdownOption {
+  label: string;
+  value: string;
+}
 interface SingleSelectDropDownFieldProps extends BaseFieldProps {
   value: string;
   type: FieldType.Dropdown;
