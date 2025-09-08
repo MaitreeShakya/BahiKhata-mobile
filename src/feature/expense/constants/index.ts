@@ -24,3 +24,14 @@ export const EXPENSE_DATA: Expense[] = [
       "https://media.gettyimages.com/id/1082996878/photo/close-up-of-grocery-receipt.jpg?s=612x612&w=0&k=20&c=22rtGosBeqS1MSS6dHhUyU7N8k51iwi99lFC2hTW5Jo=",
   },
 ];
+
+export const EXPENSE_CATEGORIES = [
+  "Food",
+  "Utilities",
+  "Rent",
+  "Transportation",
+  "Entertainment",
+  "Healthcare",
+  "Education",
+  "Miscellaneous",
+];

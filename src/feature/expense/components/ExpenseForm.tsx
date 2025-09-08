@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { setExpenseForm } from "../slices/ExpenseFormSlice";
 import Button from "../../../components/button";
 import Divider from "../../../components/divider";
+import { EXPENSE_CATEGORIES } from "../constants";
 
 interface ExpenseFormProps {
   initialValues?: Expense;
@@ -24,6 +25,11 @@ export const ExpenseForm = ({ initialValues, onSubmit }: ExpenseFormProps) => {
   }, []);
 
   const handleSubmit = () => {};
+
+  const expense_categories = EXPENSE_CATEGORIES.map((category) => ({
+    label: category,
+    value: category.toLowerCase(),
+  }));
 
   return (
     <>
@@ -46,11 +52,7 @@ export const ExpenseForm = ({ initialValues, onSubmit }: ExpenseFormProps) => {
           value={""}
           label="Category"
           isMulti={false}
-          options={[
-            { label: "Food", value: "food" },
-            { label: "Transport", value: "transport" },
-            { label: "Utilities", value: "utilities" },
-          ]}
+          options={expense_categories}
         />
         <Field
           type={FieldType.TextInput}
