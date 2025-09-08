@@ -24,15 +24,9 @@ export default function (props: DropDownFieldProps) {
         mode="outlined"
         right={<TextInput.Icon icon={icon} />}
         onPress={toggleDropDown}
-        style={{ backgroundColor: "white" }}
+        style={styles.textInput}
       />
-      {showDropDown && (
-        <Options
-          options={options}
-          onSelect={() => {}}
-          onClose={toggleDropDown}
-        />
-      )}
+      {showDropDown && <Options options={options} onSelect={() => {}} onClose={toggleDropDown} />}
     </View>
   );
 }
@@ -46,8 +40,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 4,
   },
-  dropdown: {
-    backgroundColor: "#ffffff",
+  textInput: {
+    backgroundColor: "white",
   },
-  textInput: {},
 });
