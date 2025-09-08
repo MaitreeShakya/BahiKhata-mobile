@@ -8,7 +8,7 @@ import Header from "../../components/header";
 
 interface Props extends AppStackNavProps<"HomeScreen"> {}
 
-export default function HomeScreen({ navigation }: Props) {
+const HomeScreen = ({ navigation }: Props) => {
   const [showAddExpenseModal, setShowAddExpenseModal] =
     useState<boolean>(false);
 
@@ -36,7 +36,7 @@ export default function HomeScreen({ navigation }: Props) {
       {showAddExpenseModal && <AddExpense onDismiss={toggleAddExpenseModal} />}
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -49,3 +49,5 @@ const styles = StyleSheet.create({
     right: 16,
   },
 });
+
+export default HomeScreen;
