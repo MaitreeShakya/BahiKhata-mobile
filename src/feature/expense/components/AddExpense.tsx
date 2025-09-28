@@ -64,5 +64,7 @@ const styles = StyleSheet.create({
   footer: {
     marginTop: 16,
   },
-  form: {},
+  form: {
+    flex: 1,
+  },
 });
