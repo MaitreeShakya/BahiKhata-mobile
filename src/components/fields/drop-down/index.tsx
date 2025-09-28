@@ -1,5 +1,5 @@
 import { DropDownFieldProps, DropdownOption } from "./typings";
-import { Pressable, StyleSheet, View } from "react-native";
+import { Pressable, StyleSheet, TouchableOpacity, View } from "react-native";
 import { Text, TextInput } from "react-native-paper";
 import { useState } from "react";
 import Options from "./Options";
@@ -71,15 +71,15 @@ export default function (props: DropDownFieldProps) {
       <Text variant="labelMedium" style={styles.label}>
         {props.label}:
       </Text>
-      <Pressable onPress={toggleDropDown}>
-        <TextInput
-          editable={false}
-          mode="outlined"
-          right={<TextInput.Icon icon={icon} onPress={toggleDropDown} />}
-          style={styles.textInput}
-          placeholder="Select an option"
-        />
-      </Pressable>
+      <TextInput
+        editable={false}
+        mode="outlined"
+        right={<TextInput.Icon icon={icon} onPress={toggleDropDown} />}
+        style={styles.textInput}
+        placeholder="Select an option"
+        onPress={toggleDropDown}
+      />
+
       {renderSelectedValue()}
 
       {showDropDown && (
