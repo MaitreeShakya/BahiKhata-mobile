@@ -5,20 +5,28 @@ export interface DropdownOption {
   label: string;
   value: string;
 }
+
+export interface onSelectProps {
+  name?: string;
+  value?: string | string[];
+}
+
 interface SingleSelectDropDownFieldProps extends BaseFieldProps {
   value: string;
   type: FieldType.Dropdown;
-  onSelect: (value?: string) => void;
+  onSelect: (props: onSelectProps) => void;
   isMulti: false;
   options: Option[];
+  name?: string;
 }
 
 interface MultiSelectDropDownFieldProps extends BaseFieldProps {
   value: string[];
   type: FieldType.Dropdown;
-  onChange: (value?: string[]) => void;
+  onSelect: (props: onSelectProps) => void;
   isMulti: true;
   options: Option[];
+  name?: string;
 }
 
 export type DropDownFieldProps =

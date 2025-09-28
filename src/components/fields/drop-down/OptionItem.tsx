@@ -15,7 +15,10 @@ export const OptionItem = ({ item, isSelected, onPress }: Props) => {
   };
 
   return (
-    <Pressable onPress={handlePress}>
+    <Pressable
+      onPress={handlePress}
+      style={({ pressed }) => [{ opacity: pressed ? 0.5 : 1.0 }]}
+    >
       <Text key={item.value} style={style}>
         {item.label}
       </Text>
@@ -30,8 +33,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     borderBottomWidth: 1,
     borderBottomColor: "#ccc",
+    color: "#000000",
   },
   selectedOption: {
-    backgroundColor: "#e0e0e0",
+    backgroundColor: "#90EE90",
   },
 });

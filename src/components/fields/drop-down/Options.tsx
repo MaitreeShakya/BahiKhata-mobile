@@ -6,14 +6,18 @@ import { OptionItem } from "./OptionItem";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 interface Props {
+  value: string | string[];
+  isMulti: boolean;
   options: DropdownOption[];
   onSelect: (option: DropdownOption) => void;
   onClose: () => void;
 }
 
-const Options = ({ options, onSelect, onClose }: Props) => {
+const Options = ({ options, onSelect, onClose, isMulti, value }: Props) => {
   const renderItem = ({ item, index }: ListRenderItemInfo<DropdownOption>) => {
-    const isSelected = index % 2 === 0 && true;
+    const isSelected = isMulti
+      ? (value as string[]).includes(item.value)
+      : item.value === value;
     return (
       <OptionItem item={item} isSelected={isSelected} onPress={onSelect} />
     );
@@ -65,5 +69,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: "bold",
+    color: "#000000",
   },
 });
