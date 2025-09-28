@@ -1,10 +1,11 @@
-import { SafeAreaView, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import Modal from "../modal";
 import { CameraType, CameraView, FlashMode } from "expo-camera";
 import { CameraHeader } from "./CameraHeader";
 import { CameraFooter } from "./CameraFooter";
 import { useRef, useState } from "react";
 import { CameraComponentProps } from "./typings";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export const CameraComponent = ({
   onCapture,

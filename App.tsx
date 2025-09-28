@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import Router from "./src/router";
 import { Provider as StoreProvider } from "react-redux";
 import store from "./src/store";
@@ -7,6 +7,7 @@ import { Provider as PaperProvider } from "react-native-paper";
 import { requestPermissions } from "./src/permissions";
 import { useEffect } from "react";
 import { AuthProvider } from "./src/feature/auth/provider/AuthProvider";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function App() {
   const { askAllPermissions } = requestPermissions();
