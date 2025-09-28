@@ -3,6 +3,7 @@ export interface Expense {
   description: string;
   amount: number;
   date: string;
+  category: string[];
   receipt_url?: string;
   addedOn?: string;
 }

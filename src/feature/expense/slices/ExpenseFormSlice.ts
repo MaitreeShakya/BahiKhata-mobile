@@ -5,6 +5,7 @@ const initialState: Expense = {
   amount: 0,
   date: "",
   description: "",
+  category: [],
 };
 
 export const ExpenseFormSlice = createSlice({
