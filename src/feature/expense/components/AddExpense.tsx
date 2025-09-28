@@ -39,6 +39,8 @@ export default AddExpense;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+        //maxHeight: "80%",
+
     justifyContent: "center",
     alignItems: "center",
   },
@@ -65,6 +67,6 @@ const styles = StyleSheet.create({
     marginTop: 16,
   },
   form: {
-    //flex: 1,
+    flex: 1,
   },
 });
